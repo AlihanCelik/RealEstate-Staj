@@ -12,6 +12,7 @@ namespace RealEstate_Dapper_UI.Dtos.ProductDtos
             public string type {get; set;}
             public string address {get; set;}
             public bool dealOfTheDay {get; set;}
+            public DateTime advertisementDate{get; set;}
 
         
     }

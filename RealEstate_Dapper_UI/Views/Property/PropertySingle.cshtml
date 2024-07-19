@@ -12,9 +12,9 @@
 <section class="w3l-breadcrumb">
     <div class="container">
         <ul class="breadcrumbs-custom-path">
-            <li><a href="index.html">Home</a></li>
-            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span> Property</li>
-            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span> property single</li>
+            <li><a href="/Default/Index/">Ana Sayfa</a></li>
+            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span> İlanlar</li>
+            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span> İlan Detayları</li>
         </ul>
     </div>
 </section>
@@ -24,10 +24,10 @@
         <div class="inner mb-4">
             <ul class="blog-single-author-date align-items-center">
                 <li>
-                    <div class="listing-category"><span>@ViewBag.type</span></div>
+                    <div class="listing-category"><span> @ViewBag.type </span></div>
                 </li>
-                <li><span class="fa fa-clock-o"></span> 5 months ago</li>
-                <li><span class="fa fa-eye"></span> 250 views</li>
+                <li><span class="fa fa-clock-o"></span> @ViewBag.advertisementDate Ay Önce </li>
+                <li><span class="fa fa-eye"></span> 250 kişi bu ilanı görüntüledi. </li>
             </ul>
         </div>
         <div class="post-content">
@@ -36,41 +36,24 @@
         <div class="blo-singl mb-4">
             <ul class="blog-single-author-date align-items-center">
                 <li>
-                    <p>@ViewBag.address @ViewBag.district / @ViewBag.city</p>
+                    <p> @ViewBag.address @ViewBag.district / @ViewBag.city</p>
                 </li>
-                <li><span class="fa fa-bed"></span> 3 Beds</li>
-                <li><span class="fa fa-bath"></span>@ViewBag.bathCount Banyo</li>
-                <li><span class="fa fa-share-square-o"></span> 1258 sqrft</li>
+                <li><span class="fa fa-bed"></span> @ViewBag.bedRoomCount Yatak Odası </li>
+                <li><span class="fa fa-bath"></span> @ViewBag.bathCount Banyo </li>
+                <li><span class="fa fa-share-square-o"></span> @ViewBag.productSize metrekare </li>
             </ul>
             <ul class="share-post">
-                <a href="#url" class="cost-estate m-o">$@ViewBag.price</a>
+                <a href="#url" class="cost-estate m-o"> $ @ViewBag.price </a>
             </ul>
         </div>
         <div class="row">
             <div class="col-lg-8 w3l-news">
                 <div class="blog-single-post">
-                    <div class="single-post-image mb-5">
-                        <div class="owl-blog owl-carousel owl-theme">
-                            <div class="item">
-                                <div class="card">
-                                    <img src="~/starter/assets/images/p1.jpg" class="img-fluid radius-image" alt="image">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card">
-                                    <img src="~/starter/assets/images/p2.jpg" class="img-fluid radius-image" alt="image">
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card">
-                                    <img src="~/starter/assets/images/p3.jpg" class="img-fluid radius-image" alt="image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @await Component.InvokeAsync("_PropertySliderComponentPartial")
+                    
 
                     <div class="single-post-content">
-                        <h3 class="post-content-title mb-3">Description</h3>
+                        <h3 class="post-content-title mb-3">Açıklama</h3>
                         <p class="mb-4">
                             Lorem model text, and a search for 'lorem ipsum' will uncover many web sites still in their
                             infancy. Various
@@ -84,17 +67,17 @@
                         <div class="single-bg-white">
                             <h3 class="post-content-title mb-4">Property detail</h3>
                             <ul class="details-list">
-                                <li><strong>Property id :</strong> PRPT12345 </li>
-                                <li><strong>Property size :</strong> 1200sqft </li>
-                                <li><strong>Rooms :</strong> 2 </li>
-                                <li><strong>Bedrooms :</strong> 5 </li>
-                                <li><strong>Bathrooms :</strong> 2 </li>
+                                <li><strong>Property id :</strong> @ViewBag.productDetailId </li>
+                                <li><strong>Property size :</strong>@ViewBag.productSize metrekare </li>
+                                <li><strong>Rooms :</strong> @ViewBag.roomCount</li>
+                                <li><strong>Bedrooms :</strong> @ViewBag.bedRoomCount </li>
+                                <li><strong>Bathrooms :</strong> @ViewBag.bathCount </li>
                                 <li><strong>Exterior material :</strong> Brick </li>
                                 <li><strong>Structure type :</strong> Wood </li>
-                                <li><strong>Garage size :</strong> 15 cars </li>
-                                <li><strong>Garages :</strong> 15 </li>
+                                <li><strong>Garage size :</strong> @ViewBag.garageSize cars </li>
+                                <li><strong>Garages :</strong> @ViewBag.garageSize </li>
                                 <li><strong>Property Price :</strong> $ 750 </li>
-                                <li><strong>Built Year :</strong> 2018 </li>
+                                <li><strong>Built Year :</strong> @ViewBag.buildYear </li>
                                 <li><strong>Avaiable from :</strong> Aug 2019 </li>
                             </ul>
                         </div>
@@ -130,6 +113,7 @@
                     </div>
                 </div>
             </div>
+            @await Component.InvokeAsync("_PropertySliderComponentPartial")
             <div class="sidebar-side col-lg-4 col-md-12 col-sm-12 mt-lg-0 mt-5">
                 <aside class="sidebar">
 
