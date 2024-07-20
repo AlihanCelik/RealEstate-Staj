@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using RealEstate_Dapper_UI.Dtos.AppUserDtos;
 using Newtonsoft.Json;
+using RealEstate_Dapper_UI.Dtos.PropertyAmentiyDtos;
 using System.Text;
 
 
@@ -22,7 +22,7 @@ namespace RealEstate_Dapper_UI.ViewComponents.EstateAgent
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<GetAppUserByProductId>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultPropertyAmenityByStatusTrueDto>>(jsonData);
                 return View(values);
             }
             return View();

@@ -262,6 +262,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX05hdmJhclZpZXdDb21wb25lbnRQYXJ0aWFsL0RlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/alihan/RealEstate/RealEstate_Dapper_UI/Views/Shared/Components/_PropertyAmenityStatusTrueByPropertyIdComponentPartial/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX1Byb3BlcnR5QW1lbml0eVN0YXR1c1RydWVCeVByb3BlcnR5SWRDb21wb25lbnRQYXJ0aWFsL0RlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/alihan/RealEstate/RealEstate_Dapper_UI/Views/Shared/Components/_PropertyAppUserComponentPartial/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX1Byb3BlcnR5QXBwVXNlckNvbXBvbmVudFBhcnRpYWwvRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

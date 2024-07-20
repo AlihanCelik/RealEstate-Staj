@@ -63,7 +63,9 @@ namespace RealEstate_Dapper_UI.Controllers
             ViewBag.roomCount=values2.roomCount;
             ViewBag.buildYear=values2.buildYear;
             ViewBag.garageSize=values2.garageSize;
+            ViewBag.location=values2.location;
             ViewBag.productDetailId=values2.productDetailId;
+            ViewBag.videoUrl=values2.videoUrl;
 
 
             
