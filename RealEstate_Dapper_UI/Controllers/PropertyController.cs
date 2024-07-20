@@ -47,7 +47,9 @@ namespace RealEstate_Dapper_UI.Controllers
             ViewBag.city=values.city;
             ViewBag.district=values.district;
             ViewBag.address=values.address;
+            ViewBag.description=values.description;
             ViewBag.type=values.type;
+            ViewBag.advertisementDate2=values.advertisementDate;
             DateTime date1 = DateTime.Now;
             DateTime date2 = values.advertisementDate;
             TimeSpan timeSpan =date1-date2;

@@ -6,11 +6,11 @@ using System.Text;
 
 namespace RealEstate_Dapper_UI.ViewComponents.EstateAgent
 {
-    public class _PropertyAppUserComponentPartial:ViewComponent
+    public class _PropertyAmenityStatusTrueByPropertyIdComponentPartial:ViewComponent
     {
        private readonly IHttpClientFactory _httpClientFactory;
 
-        public _PropertyAppUserComponentPartial(IHttpClientFactory httpClientFactory)
+        public _PropertyAmenityStatusTrueByPropertyIdComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory=httpClientFactory;
         }
@@ -18,7 +18,7 @@ namespace RealEstate_Dapper_UI.ViewComponents.EstateAgent
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:5001/api/AppUser?id=1");
+            var responseMessage = await client.GetAsync("http://localhost:5001/api/PropertyAmenity?id=1");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();

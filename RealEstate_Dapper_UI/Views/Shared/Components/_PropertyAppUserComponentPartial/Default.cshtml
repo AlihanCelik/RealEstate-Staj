@@ -1,4 +1,4 @@
-@model List<RealEstate_Dapper_UI.Dtos.AppUserDtos.GetAppUserByProductId>
+@model GetAppUserByProductId
 
 <div class="sidebar-side col-lg-4 col-md-12 col-sm-12 mt-lg-0 mt-5">
                 <aside class="sidebar">
@@ -10,12 +10,13 @@
                         </div>
 
                         <article class="post">
-                            <figure class="post-thumb"><img src="@Model.UserImageUrl" class="radius-image" alt="">
+                            <figure class="post-thumb">
+                                <img src="@Model.UserImageUrl" style="width:100px;height:100px;" class="radius-image" alt="">
                             </figure>
                             <div class="text mb-0"><a href="#blog-single"> @Model.Name
                                 </a>
                                 <div class="post-info"> @Model.PhoneNumber </div>
-                                <div class="post-info"> </div>
+                                <div class="post-info"> @Model.Email </div>
                             </div>
                         </article>
                         <button type="submit" class="btn btn-primary btn-style w-100"> Detaylı İletişim Bilgileri </button>
