@@ -1,4 +1,4 @@
-namespace RealEstate_Dapper_Api.Dtos.AppUserDtos
+namespace RealEstate_Dapper_UI.Dtos.AppUserDtos
 {
     public class GetAppUserByProductId
     {
