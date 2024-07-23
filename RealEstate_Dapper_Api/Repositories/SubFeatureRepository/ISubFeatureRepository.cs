@@ -4,6 +4,6 @@ namespace RealEstate_Dapper_Api.Repositories.SubFeatureRepository
 {
     public interface ISubFeatureRepository
     {
-        Task<List<ResultSubFeatureDto>> ResultPropertyAmenityByStatusTrue(int id);
+        Task<List<ResultSubFeatureDto>> GetAllSubFeatureAsync();
     }
 }
