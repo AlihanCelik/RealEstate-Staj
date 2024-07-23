@@ -15,7 +15,6 @@ namespace RealEstate_Dapper_UI.Controllers
             _httpClientFactory = httpClientFactory;
             _apiSettings = apiSettings.Value;
         }
-
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();

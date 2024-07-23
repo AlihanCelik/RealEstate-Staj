@@ -12,7 +12,7 @@ namespace RealEstate_Dapper_Api.Repositories.ContactRepository
         {
             _context = context;
         }
-        public async void CreateContact(CreateContactDto createContactDto)
+        public async Task CreateContact(CreateContactDto createContactDto)
         {
             string query ="insert into Contact (Name,Subject,Email,Message,SendDate) values (@name ,@subject,@email,@message,@sendDate)";
             var parameters =new DynamicParameters();
@@ -27,7 +27,7 @@ namespace RealEstate_Dapper_Api.Repositories.ContactRepository
             }
         }
 
-        public async void DeleteContact(int id)
+        public async Task DeleteContact(int id)
         {
             string query="Delete From Contact Where ContactID=@contactID";
             var parameters =new DynamicParameters();

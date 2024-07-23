@@ -47,10 +47,10 @@ namespace RealEstate_Dapper_UI.Controllers
             return View();
 
         }
-        [HttpGet]
-        public async Task<IActionResult> PropertySingle(int id)
+        [HttpGet("property/{slug}/{id}")]
+        public async Task<IActionResult> PropertySingle(string slug, int id)
         {
-            id =1;
+            ViewBag.i=id;
              var cleint=_httpClientFactory.CreateClient();
             var responeseMessage=await cleint.GetAsync("http://localhost:5001/api/Products/GetProductByProductId?id="+id);
             var jsonData=await responeseMessage.Content.ReadAsStringAsync();
@@ -69,6 +69,7 @@ namespace RealEstate_Dapper_UI.Controllers
             ViewBag.district=values.district;
             ViewBag.address=values.address;
             ViewBag.description=values.description;
+            ViewBag.SlugUrl=values.SlugUrl;
             ViewBag.type=values.type;
             ViewBag.advertisementDate2=values.advertisementDate;
             DateTime date1 = DateTime.Now;
@@ -89,8 +90,21 @@ namespace RealEstate_Dapper_UI.Controllers
             ViewBag.videoUrl=values2.videoUrl;
 
 
+            string slugFromTitle = CreateSlug(values.title);
+            ViewBag.slugUrl = slugFromTitle;
+
             
             return View();
+        }
+        private string CreateSlug(string title)
+        {
+            title = title.ToLowerInvariant();
+            title = title.Replace(" ", "-");
+            title = System.Text.RegularExpressions.Regex.Replace(title, @"[^a-z0-9\s-]", "");
+            title = System.Text.RegularExpressions.Regex.Replace(title, @"\s+", " ").Trim();
+            title = System.Text.RegularExpressions.Regex.Replace(title, @"\s", "-");
+
+            return title;
         }
     }
 }

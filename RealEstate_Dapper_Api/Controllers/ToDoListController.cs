@@ -23,19 +23,19 @@ namespace RealEstate_Dapper_Api.Controllers
         [HttpPost]
         public async Task<IActionResult>CreateToDoList(CreateToDoListDto createToDoListDto)
         {
-                _ToDoListRepository.CreateToDoList(createToDoListDto);
+                await _ToDoListRepository.CreateToDoList(createToDoListDto);
                 return Ok("Yapılacaklar Başarılı bir şekilde eklendi.");
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteToDoList(int id)
         {
-            _ToDoListRepository.DeleteToDoList(id);
+            await _ToDoListRepository.DeleteToDoList(id);
             return Ok("Yapılacaklar Başarılı Bir şekilde Silindi.");
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateToDoList(UpdateToDoListDto updateToDoListDto){
-            _ToDoListRepository.UpdateToDoList(updateToDoListDto);
+            await _ToDoListRepository.UpdateToDoList(updateToDoListDto);
             return Ok("Yapılacaklar Başarıyla Güncellendi"); 
         }
 

@@ -27,7 +27,7 @@ namespace RealEstate_Dapper_Api.Repositories.ProductRepository
 
         public async Task<List<ResultProductWithCategoryDto>> GetAllProductWithCategoryAsync()
         {
-            string query="Select ProductID,Title,Price,City,District,CategoryName,Coverimage,Type,Address,DealOfTheDay From Product inner join Category on Product.ProductCategory=Category.CategoryID";
+            string query="Select ProductID,Title,Price,City,District,CategoryName,Coverimage,Type,Address,DealOfTheDay,SlugUrl From Product inner join Category on Product.ProductCategory=Category.CategoryID";
             using (var connection=_context.CreateConnection()){
                 var values =await connection.QueryAsync<ResultProductWithCategoryDto>(query);
                 return values.ToList();
@@ -112,12 +112,12 @@ namespace RealEstate_Dapper_Api.Repositories.ProductRepository
 
         public async Task<GetProductByProductIdDto> GetProductByProductId(int id)
         {
-             string query="Select ProductID,Title,Price,City,District,CategoryName,Coverimage,Type,Address,DealOfTheDay,AdvertisementDate,Description From Product inner join Category on Product.ProductCategory=Category.CategoryID where ProductId=@productId";
-             var parameters =new DynamicParameters();
-            parameters.Add("@productID",id);
-            using(var connection = _context.CreateConnection())
+             string query = "Select ProductID,Title,Price,City,District,Description,CategoryName,CoverImage,Type,Address,DealOfTheday,AdvertisementDate,SlugUrl From Product inner join Category on Product.ProductCategory=Category.CategoryID where ProductId=@productId";
+            var parameters = new DynamicParameters();
+            parameters.Add("@productID", id);
+            using (var connection = _context.CreateConnection())
             {
-                  var values = await connection.QueryAsync<GetProductByProductIdDto>(query,parameters);
+                var values = await connection.QueryAsync<GetProductByProductIdDto>(query, parameters);
                 return values.FirstOrDefault();
             }
         }

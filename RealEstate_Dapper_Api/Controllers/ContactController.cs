@@ -23,13 +23,13 @@ namespace RealEstate_Dapper_Api.Controllers
         [HttpPost]
         public async Task<IActionResult>CreateContact(CreateContactDto createContactDto)
         {
-                _ContactRepository.CreateContact(createContactDto);
+                await _ContactRepository.CreateContact(createContactDto);
                 return Ok("Contact Başarılı bir şekilde eklendi.");
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteContact(int id)
         {
-            _ContactRepository.DeleteContact(id);
+            await _ContactRepository.DeleteContact(id);
             return Ok("Contact Başarılı Bir şekilde Silindi.");
         }
 

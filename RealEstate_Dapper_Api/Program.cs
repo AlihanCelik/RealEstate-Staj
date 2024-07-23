@@ -19,32 +19,13 @@ using RealEstate_Dapper_Api.Repositories.ProductImageRepository;
 using RealEstate_Dapper_Api.Repositories.AppUserRepository;
 using RealEstate_Dapper_Api.Repositories.PropertyAmenityRepository;
 using RealEstate_Dapper_Api.Repositories.SubFeatureRepository;
+using RealEstate_Dapper_Api.Containers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddControllers();
-builder.Services.AddTransient<Context>();
-builder.Services.AddTransient<ICategoryRepository,CategoryRepository>();
-builder.Services.AddTransient<IProductRepository,ProductRepository>();
-builder.Services.AddTransient<IWhoWeAreDetailRepository,WhoWeAreDetailRepository>();
-builder.Services.AddTransient<IServiceRepository,ServiceRepository>();
-builder.Services.AddTransient<IBottomGridRepository,BottomGridRepository>();
-builder.Services.AddTransient<IPopularLocationRepository,PopularLocationRepository>();
-builder.Services.AddTransient<ITestimonialRepository,TestimonialRepository>();
-builder.Services.AddTransient<IEmployeeRepository,EmployeeRepository>();
-builder.Services.AddTransient<IStatisticsRepository,StatisticsRepository>();
-builder.Services.AddTransient<IContactRepository,ContactRepository>();
-builder.Services.AddTransient<IToDoListRepository,ToDoListRepository>();
-builder.Services.AddTransient<IStatisticRepository,StatisticRepository>();
-builder.Services.AddTransient<IChartRepository,ChartRepository>();
-builder.Services.AddTransient<ILast5ProductsRepository,Last5ProductsRepository>();
-builder.Services.AddTransient<IMessageRepository,MessageRepository>();
-builder.Services.AddTransient<IProducImageRepository,ProductImageRepository>();
-builder.Services.AddTransient<IAppUserRepository,AppUserRepository>();
-builder.Services.AddTransient<IPropertyAmenityRepository,PropertyAmenityRepository>();
-builder.Services.AddTransient<ISubFeatureRepository,SubFeatureRepository>();
+builder.Services.ContainerDependencies();
 
 builder.Services.AddCors(opt=>
 {
@@ -59,7 +40,7 @@ builder.Services.AddCors(opt=>
 builder.Services.AddHttpClient();
 builder.Services.AddSignalR();
 
-
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

@@ -28,7 +28,6 @@ namespace RealEstate_Dapper_Api.Containers
         public static void ContainerDependencies(this IServiceCollection services)
         {
             services.AddTransient<Context>();
-
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();

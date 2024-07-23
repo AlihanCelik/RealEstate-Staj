@@ -12,7 +12,7 @@ namespace RealEstate_Dapper_Api.Repositories.EmployeeRepository
         {
             _context = context;
         }
-        public async void CreateEmployee(CreateEmployeeDto createEmployeeDto)
+        public async Task CreateEmployee(CreateEmployeeDto createEmployeeDto)
         {
             string query ="insert into Employee (Name,Title,Mail,PhoneNumber,ImageUrl,Status) values (@name ,@title,@mail,@phoneNumber,@imageUrl,@status)";
             var parameters =new DynamicParameters();
@@ -28,7 +28,7 @@ namespace RealEstate_Dapper_Api.Repositories.EmployeeRepository
             }
         }
 
-        public async void DeleteEmployee(int id)
+        public async Task DeleteEmployee(int id)
         {
             string query="Delete From Employee Where EmployeeID=@employeeID";
             var parameters =new DynamicParameters();
@@ -60,7 +60,7 @@ namespace RealEstate_Dapper_Api.Repositories.EmployeeRepository
             }
         }
 
-        public async void UpdateEmployee(UpdateEmployeeDto updateEmployeeDto)
+        public async Task UpdateEmployee(UpdateEmployeeDto updateEmployeeDto)
         {
             string query="Update Employee Set Name=@name,Title=@title,Mail=@mail,PhoneNumber=@phoneNumber,ImageUrl=@imageUrl , Status=@status where EmployeeID=@employeeID";
             var parameters =new DynamicParameters();
